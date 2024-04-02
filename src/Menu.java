@@ -3,9 +3,10 @@ import java.util.Scanner;
 public class Menu {
     
         public static void main(String[] args) {
+              
             Scanner Entrada = new Scanner(System.in);
 
-            System.out.println("1 - Criar conta\n2 - Listar cinta");
+            System.out.println("1 - Criar conta\n2 - Listar contas\n3 - Excluir conta");
             int valor = Entrada.nextInt();
             
             switch (valor) {
