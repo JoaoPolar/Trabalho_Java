@@ -4,8 +4,8 @@ public abstract class Cliente {
     
     private int id;
     private String tipo;
-    private String documento;
-    private float saldo;
+    private String nome;    
+    private double saldo;
 
     public int getId() {
         return id;
@@ -23,20 +23,19 @@ public abstract class Cliente {
         this.tipo = tipo;
     }
 
-    public String getDocumento() {
-        return documento;
-    }
-
-    public void setDocumento(String documento) {
-        this.documento = documento;
-    }
-
-    public float getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(float saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    public Cliente(int id, String tipo, String nome) {
+        this.id = id;
+        this.tipo = tipo;
+        this.nome = nome;
+        this.saldo = 0;
     }
     
 }
