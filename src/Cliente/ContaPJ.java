@@ -16,5 +16,9 @@ public class ContaPJ extends Cliente {
         super (id, tipo, nome);
         this.CNPJ = CNPJ;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Dados da conta\nId: " + getId() + "\nTipo: " + getTipo() + "\nNome: " + getNome() + "\nCNPJ: " + CNPJ + "\nSaldo: " + getSaldo();
+    }
 }

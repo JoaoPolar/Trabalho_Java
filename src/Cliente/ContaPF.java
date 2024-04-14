@@ -16,5 +16,9 @@ public class ContaPF extends Cliente{
         super(id, tipo, nome);
         this.CPF = CPF;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Dados da conta\nId: " + getId() + "\nTipo: " + getTipo() + "\nNome: " + getNome() + "\nCPF: " + CPF + "\nSaldo: " + getSaldo();
+    }
 }

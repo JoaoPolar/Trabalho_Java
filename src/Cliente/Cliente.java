@@ -1,6 +1,9 @@
 package Cliente;
 
+import java.util.Scanner;
+import Banco.Banco;
 public abstract class Cliente {
+    Scanner Entrada = new Scanner(System.in);
     
     private int id;
     private String tipo;
@@ -27,8 +30,17 @@ public abstract class Cliente {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
+    public double setSaldo(double saldo) {
         this.saldo = saldo;
+        return 0;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public Cliente(int id, String tipo, String nome) {
@@ -36,6 +48,18 @@ public abstract class Cliente {
         this.tipo = tipo;
         this.nome = nome;
         this.saldo = 0;
+    }
+    
+    public void Depositar() {
+        System.out.println("Tipo da conta: ");
+        String tipoConta = Entrada.nextLine();
+        if ("ContaPJ".equals(tipoConta)) {
+            System.out.println("Quanto deseja depositar?\n Valor: ");
+            double valor_declarado = Entrada.nextDouble();
+            setSaldo(valor_declarado + this.saldo);
+        }else {
+            
+        }
     }
     
 }
