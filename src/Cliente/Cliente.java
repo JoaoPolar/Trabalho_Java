@@ -57,8 +57,6 @@ public abstract class Cliente {
             System.out.println("Quanto deseja depositar?\n Valor: ");
             double valor_declarado = Entrada.nextDouble();
             setSaldo(valor_declarado + this.saldo);
-        }else {
-            
         }
     }
     

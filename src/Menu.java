@@ -38,7 +38,7 @@ public class Menu {
                             System.out.println("Conta criada");
                             
                             System.out.println(novacontaPJ.toString());                            
-                            banco.addClientePJ(novacontaPJ);
+                            banco.addCliente(novacontaPJ);
                             
                             
                             
@@ -51,40 +51,23 @@ public class Menu {
                             System.out.println("Conta criada");
                             
                             System.out.println(novacontaPF.toString());
-                            banco.addClientePF(novacontaPF);
+                            banco.addCliente(novacontaPF);
                         }
-                        
-                        ContaPF novacontaPF.Depositar();
                     }
 
                     case 2 -> {
                         Entrada.nextLine();
-                        System.out.println("Digite o tipo de conta: ");
-                        String tipoConta = Entrada.nextLine();
-                        
-                        if ("ContaPJ".equals(tipoConta)) {
-                            System.out.println("Digite o identificador: ");
-                            int identificador = Entrada.nextInt();
-
-                            ContaPJ novacontaPJ = banco.getClientePJ(identificador);
-                            if (novacontaPJ == null) {
-                                System.out.println("Cliente nao encontrado!");
-                            }else {
-                                System.out.println(novacontaPJ);
-                            }
-                        }else {                            
-                            System.out.println("Digite o identificador: ");
-                            int identificador = Entrada.nextInt();
-
-                            ContaPF novacontaPF = banco.getClientePF(identificador);
-                            if (novacontaPF == null) {
-                                System.out.println("Cliente nao encontrado!");
-                            }else {
-                                System.out.println(novacontaPF);
-                            }
+                        System.out.println("Digite o Id: ");
+                        int id  = Entrada.nextInt();
+                        Cliente c = banco.getCliente(id);
+                        if(c == null){
+                        System.out.println("id invalido");
                         }
-
+                        else{
+                            System.out.println(c);
+                        }
                     }
+
                     case 3 -> {
                         
                     }
@@ -92,9 +75,8 @@ public class Menu {
                     case 4 -> {
                         System.out.println("Qual o id");
                         int id = Entrada.nextInt();
-                        banco.getClientePJ(id);
+                        banco.getCliente(id);
                         
-                        Deposito.Depositar();
                     }    
                     case 5 -> {
                         
