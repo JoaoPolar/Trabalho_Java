@@ -1,7 +1,6 @@
 package Cliente;
 
 import java.util.Scanner;
-import Banco.Banco;
 public abstract class Cliente {
     Scanner Entrada = new Scanner(System.in);
     
@@ -50,14 +49,22 @@ public abstract class Cliente {
         this.saldo = 0;
     }
     
-    public void Depositar() {
-        System.out.println("Tipo da conta: ");
-        String tipoConta = Entrada.nextLine();
-        if ("ContaPJ".equals(tipoConta)) {
-            System.out.println("Quanto deseja depositar?\n Valor: ");
-            double valor_declarado = Entrada.nextDouble();
-            setSaldo(valor_declarado + this.saldo);
+    public void Depositar(double deposito){
+        if (deposito > 0){
+            setSaldo(deposito);
+        }
+        else{
+            System.out.println("Valor invalido");
         }
     }
     
+    public void Saque(double saque) {
+        if (saque <= getSaldo()){
+            setSaldo(getSaldo() - saque);
+            System.out.println("Saque realizado");
+        }
+        else{
+            System.out.println("Valor invalido");
+        }
+    }
 }
