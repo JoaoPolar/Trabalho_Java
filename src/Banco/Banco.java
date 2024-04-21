@@ -12,8 +12,14 @@ public class Banco {
         this.Clientes.add(Cliente);
         }
 
-        public void removeCliente(Cliente Cliente) {
-            this.Clientes.remove(Cliente);
+        public Cliente removeCliente(int id) {
+            for (Cliente c : Clientes) {
+                if (c.getId()== id){
+                    c.setId(-1);
+                }
+               
+        }
+            return null;
         }
         
         public Cliente getCliente(int id){
@@ -25,6 +31,6 @@ public class Banco {
             }
             return null;
         }
-}
 
+}
        

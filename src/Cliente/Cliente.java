@@ -58,13 +58,15 @@ public abstract class Cliente {
         }
     }
     
-    public void Saque(double saque) {
-        if (saque <= getSaldo()){
-            setSaldo(getSaldo() - saque);
-            System.out.println("Saque realizado");
-        }
-        else{
-            System.out.println("Valor invalido");
-        }
+  public double Saque(double saque) {
+    if (saque <= getSaldo()){
+        setSaldo(getSaldo() - saque);
+        return saque;
     }
+    else{
+        System.out.println("Valor invalido");
+        return -1;
+    }
+}
+
 }

@@ -88,6 +88,7 @@ public class Menu {
                             System.out.println("A conta possui " + c.getSaldo() + "\nValor do saque: ");
                             double saque = Entrada.nextDouble();
                             c.Saque(saque);
+                            System.out.println("Saque realizado");
                         }                        
                     }
                     
@@ -108,15 +109,33 @@ public class Menu {
                     }    
                     case 5 -> {
                         Entrada.nextLine();
-                        System.out.println("Digite o Id: ");
-                        int id  = Entrada.nextInt();
-                        Cliente c = banco.getCliente(id);
-                        if(c == null){
+                        System.out.println("Digite o Id da Conta de retirada: ");
+                        int idR  = Entrada.nextInt();
+                        Cliente r = banco.getCliente(idR);
+                        Entrada.nextLine();
+                        System.out.println("Digite o Id da Conta de deposito: ");
+                        int idD  = Entrada.nextInt();
+                        Cliente d = banco.getCliente(idD);
+                        if(r == null || d == null){
                         System.out.println("id invalido");
                         }
                         else{
+                            System.out.println("A conta de retirada possui " + r.getSaldo());
+                            System.out.println("A conta de deposito possui " + d.getSaldo());
+                            System.out.println("Valor da Transferencia: ");
+                            double trans = Entrada.nextDouble();
+                            if(trans > r.getSaldo()){
+                             
+                                System.out.println("Valor de retirada maior que o saldo da conta!");
+                            }
+                            else{
+                            r.Saque(trans);
+                            double deposito = trans;
+                            d.Depositar(deposito);
+                            System.out.println("Transferencia realizada!");
                             
                         }
+                    }
                     }
                     case 6 -> {
                         Entrada.nextLine();
@@ -127,7 +146,20 @@ public class Menu {
                         System.out.println("id invalido");
                         }
                         else{
-                            
+                            System.out.println("Tem certeza que deseja remover essa conta?\n" + c + "\n1 - sim \n2 - nao");
+                            valor = Entrada.nextInt();
+                            switch (valor) {
+                                case 1 -> {
+                                    banco.removeCliente(id);
+                                    System.out.println("Conta removida com sucesso!");
+                                            }
+                                case 2 -> {
+                                    System.out.println("Conta nao removida");
+                                            }
+                                default -> {
+                                    System.out.println("Valor invalido");
+                                            }
+                            }
                         }
                     }
                     case 7 -> {
